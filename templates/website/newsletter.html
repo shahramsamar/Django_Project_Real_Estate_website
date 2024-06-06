@@ -1,0 +1,17 @@
+{% load static %}
+<div class="visit-tailor-area fix">
+
+    <div class="tailor-details">
+        <h2>Subscribe Newsletter</h2>
+        <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
+        <form target="_blank" action="{% url "website:newsletter" %}" method="post">
+            <div class="subscribe-now">
+                {% csrf_token %}
+                <input name='email' type="text" placeholder="Enter your email">
+                <button type="submit" class="submit-btn2">Subscribe</button>
+            </div>
+        </form>    
+    </div>
+
+    <div class="tailor-offers"></div>
+</div>
