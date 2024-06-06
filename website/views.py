@@ -13,6 +13,11 @@ def about_view(request):
 def contact_view(request):
     return render(request, 'website/contact.html')
 
+def property_view(request):
+    return render(request, 'website/property.html')
+
+
+
 def newsletter_view(request):
     if request.method =="POST":
         form = NewsletterForm(request.POST)
