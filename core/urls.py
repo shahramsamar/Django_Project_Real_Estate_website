@@ -30,7 +30,9 @@ sitemaps={'static':StaticViewSitemap}
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('website.urls')),
-    path('accounts', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('blog/', include('blog.urls')),
+
     # added path user
     path('captcha/', include('captcha.urls')),
     path('sitemap.xml', sitemap, 
