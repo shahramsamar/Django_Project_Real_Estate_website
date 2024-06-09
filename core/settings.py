@@ -33,6 +33,9 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    # added module
+    'multi_captcha_admin',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,8 +46,9 @@ INSTALLED_APPS = [
     'website',
     'accounts',
     
-    
+    # added module
     'compressor',
+    'captcha',
     
 ]
 
@@ -119,6 +123,10 @@ DATABASES = {
 #         }
 #     }
 
+# captcha admin setting
+MULTI_CAPTCHA_ADMIN = {
+    'engine': 'simple-captcha',
+}
 
 
 

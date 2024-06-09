@@ -3,9 +3,23 @@ from core.settings import *
 
 
 INSTALLED_APPS = [
+    # added module
 
+    'multi_captcha_admin',
+    # added module
     'compressor',
+    'captcha',
 ]
+
+# captcha admin setting
+MULTI_CAPTCHA_ADMIN = {
+    'engine': 'simple-captcha',
+}
+
+
+
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
