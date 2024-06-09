@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     # added module
     'compressor',
     'captcha',
+    'django.contrib.sitemaps',
+
     
 ]
 
@@ -198,3 +200,6 @@ COMPRESS_JS_FILTERS = [
 ]
 # Cache settings for compressor
 COMPRESS_CACHE_BACKEND = 'default'
+
+# sitemap framework
+SITE_ID = 1

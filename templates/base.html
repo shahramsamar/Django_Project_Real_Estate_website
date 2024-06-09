@@ -163,7 +163,7 @@
                                 <div class="single-footer-caption mb-30">
 
                                     <div class="footer-logo mb-35">
-                                        <a href="index.html"><img src="{% static "img/logo/logo2_footer.png" %}" alt></a>
+                                        <a href="{% url 'website:index' %}"><img src="{% static "img/logo/logo2_footer.png" %}" alt></a>
                                     </div>
                                     <div class="footer-tittle">
                                         <div class="footer-pera">
@@ -187,11 +187,11 @@
                                 <div class="footer-tittle">
                                     <h4>Navigation</h4>
                                     <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About</a></li>
+                                        <li><a href="{% url 'website:index' %}">Home</a></li>
+                                        <li><a href="{% url 'website:about'%}">About</a></li>
                                         <li><a href="#">Services</a></li>
                                         <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="{% url 'website:contact'%}">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -227,11 +227,9 @@
                                 <div class="footer-tittle mb-50">
                                     <h4>Contact Us</h4>
                                     <ul>
-                                        <li><a href="#">Drone Mapping</a></li>
-                                        <li class="number2"><a href="#"><span class="__cf_email__"
-                                                    data-cfemail="d4b7bbbaa0b5b7a094b7b5a6a3b5a7bcfab7bbb9">[email&#160;protected]</span></a>
-                                        </li>
-                                        <li class="number"><a href="#">10 (87) 738-3940</a></li>
+                                        <li><div class="media-body"><p>Buttonwood, California. Rosemead, CA 91770</p></div></li>
+                                        <li><div class="media-body"><p>+1 253 565 2365<br> Mon to Fri 9am to 6pm</p></div></li>
+                                        <li><div class="media-body"><p>konato@gmail.com<br>Send us your query anytime!</p></div></li>
                                     </ul>
                                 </div>
                             </div>
@@ -247,8 +245,6 @@
                             <div class="col-xl-12 ">
                                 <div class="footer-copy-right text-center">
                                     <p>Copyright &copy;
-                                        <script data-cfasync="false"
-                                            src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" %}"></script>
                                         <script>document.write(new Date().getFullYear());</script> All rights reserved |
                                         This template is made with <i class="fa fa-heart color-danger"
                                             aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank"
