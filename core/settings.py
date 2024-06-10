@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'compressor',
     'captcha',
     'django.contrib.sitemaps',
+    'taggit',
+    'tinymce',
+    
 
     
 ]
