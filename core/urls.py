@@ -23,9 +23,10 @@ from website.sitemaps import StaticViewSitemap
 
 
 
-# sitemaps={'static':StaticViewSitemap,'blog':BlogSitemap}
+#sitemaps={'static':StaticViewSitemap,'blog':BlogSitemap}
 sitemaps={'static':StaticViewSitemap}
 
+  
 
 urlpatterns = [
     path('admin/', admin.site.urls),

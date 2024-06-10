@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # app name added
     'website',
     'accounts',
+    'blog',
     
     # added module
     'compressor',
