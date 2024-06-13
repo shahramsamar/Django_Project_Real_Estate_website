@@ -2,6 +2,7 @@ from django.contrib import admin
 from blog.models import Category, Post
 # Register your models here.
 
+from blog.models import Newsletter
 
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
@@ -16,3 +17,5 @@ class PostAdmin(admin.ModelAdmin):
 
 admin.site.register(Category)
 admin.site.register(Post, PostAdmin)
+admin.site.register(Newsletter)
+

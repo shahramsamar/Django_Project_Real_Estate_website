@@ -1,14 +1,18 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
+from blog.models import Post
 
 
-class StaticViewSitemap(Sitemap):
+class BlogSitemap(Sitemap):
+    changefreq = "weekly"
     priority = 0.5
-    changefreq = 'daily'
-    
+
     def items(self):
-        return ['website:index', 'website:about', 'website:contact']
+        return Post.objects.filter(status=True)
+
+    def lastmod(self, obj):
+        return obj.published_date
     
     def location(self, item):
-        return reverse(item)
+        return reverse('blog:single', kwargs={'pid':item.id})
     

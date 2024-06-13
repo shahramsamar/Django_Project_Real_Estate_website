@@ -58,10 +58,9 @@
                                             <li><a href="{% url 'website:index' %}">Home</a></li>
                                             <li><a href="{% url 'website:property' %}">Property</a></li>
                                             <li><a href="{% url 'website:about' %}">About</a></li>
-                                            <li><a href="{% url 'blog' %}">Blog</a>
+                                            <li><a href="{% url 'blog:index' %}">Blog</a>
                                                 <ul class="submenu">
-                                                    <li><a href="{% url 'blog' %}">Blog</a></li>
-                                                    <li><a href="{% url 'blog_single' %}">Blog Single</a></li>
+                                                    <li><a href="{% url 'blog:single' %}">Single</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="{% url 'website:contact' %}">Contact</a></li>
@@ -188,8 +187,8 @@
                                     <ul>
                                         <li><a href="{% url 'website:index' %}">Home</a></li>
                                         <li><a href="{% url 'website:about'%}">About</a></li>
-                                        <li><a href="{% url 'blog'%}">Blog</a></li>
-                                        <li><a href="{% url 'blog_single'%}">Blog Single</a></li>
+                                        <li><a href="{% url 'blog:index'%}">Blog</a></li>
+                                        <li><a href="{% url 'blog:single'%}">Single</a></li>
                                         <li><a href="{% url 'website:contact'%}">Contact</a></li>
                                     </ul>
                                 </div>
