@@ -18,6 +18,7 @@
             </div>
         </div>
 
+
         <section class="blog_area top-padding">
             <div class="container">
                 <div class="row">
@@ -26,14 +27,14 @@
                             {% for post in posts %}
                             <article class="blog_item">
                                 <div class="blog_item_img">
-                                    <img  class="card-img rounded-0" src="{{post.image.url}}" alt>
-                                    <a  class="blog_item_date">
+                                    <img class="card-img rounded-0"  src="{{post.image.url}}" alt>
+                                    <a href="#" class="blog_item_date">
                                         <h3>{{post.published_date |date:"d"}}</h3>
                                         <p>{{post.published_date |date:"M"}}</p>
                                     </a>
                                 </div>
                                 <div class="blog_single">
-                                    <a  class="d-inline-block" href="{% url 'blog:single' %}">
+                                    <a  class="d-inline-block" href="{% url "blog:single" pid=post.id %}">
                                         <h2  class="blog-head" style="color: #2d2d2d;">{{post.title}}</h2>
                                     </a>
                                     <p>{{post.content |safe}}</p>
@@ -126,7 +127,7 @@
                                 <div class="media post_item">
                                     <img src="{% static "img/post/post_1.jpg"%}" alt="post">
                                     <div class="media-body">
-                                        <a href="{% url 'blog:single' %}">
+                                        <a href="">
                                             <h3 style="color: #2d2d2d;">From life was you fish...</h3>
                                         </a>
                                         <p>January 12, 2019</p>
@@ -135,7 +136,7 @@
                                 <div class="media post_item">
                                     <img src="{% static "img/post/post_2.jpg" %}" alt="post">
                                     <div class="media-body">
-                                        <a href="{% url 'blog:single' %}">
+                                        <a href="">
                                             <h3 style="color: #2d2d2d;">The Amazing Hubble</h3>
                                         </a>
                                         <p>02 Hours ago</p>
@@ -144,7 +145,7 @@
                                 <div class="media post_item">
                                     <img src="{% static "img/post/post_3.jpg" %}" alt="post">
                                     <div class="media-body">
-                                        <a href="{% url 'blog:single' %}">
+                                        <a href="">
                                             <h3 style="color: #2d2d2d;">Astronomy Or Astrology</h3>
                                         </a>
                                         <p>03 Hours ago</p>
@@ -153,7 +154,7 @@
                                 <div class="media post_item">
                                     <img src="{% static "img/post/post_4.jpg" %}" alt="post">
                                     <div class="media-body">
-                                        <a href="{% url 'blog:single' %}">
+                                        <a href="">
                                             <h3 style="color: #2d2d2d;">Asteroids telescope</h3>
                                         </a>
                                         <p>01 Hours ago</p>
@@ -224,7 +225,7 @@
                                     </li>
                                 </ul>
                             </aside>
-                            {% include "blog/newsletter.html" %}
+                            {% comment %} {% include "blog/newsletter.html" %} {% endcomment %}
                         </div>
                     </div>
                 </div>
