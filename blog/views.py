@@ -19,8 +19,8 @@ def blog_single(request, pid):
     post = get_object_or_404(Post, status=1, pk=pid, published_date__lte=date_time)
     context ={"post":post}
     # related_post = Post.objects.filter(status=1,published_date__lte=date_time)
-    # post_single.counted_views += 1
-    # post_single.save()
+    post.counted_views += 1
+    post.save()
     return render(request, 'blog/blog_single.html', context)
 
 
