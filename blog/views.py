@@ -6,9 +6,13 @@ from blog.forms import NewsletterForm
 
 # Create your views here.
 
-def blog_view(request, **kwargs):
+def post_time(request):
     date_time = timezone.now()
-    posts = Post.objects.filter(status=1, published_date__lte=date_time)
+    post = Post.objects.filter(status=1, published_date__lte=date_time)
+    return post
+
+def blog_view(request, **kwargs):
+    posts = post_time(request)
     context = {"posts":posts}
     return render(request,'blog/blog_home.html', context)
 
@@ -16,11 +20,12 @@ def blog_view(request, **kwargs):
 
 def blog_single(request, pid):
     date_time = timezone.now()
-    post = get_object_or_404(Post, status=1, pk=pid, published_date__lte=date_time)
-    context ={"post":post}
+    post = get_object_or_404(Post,pk=pid,status=1,published_date__lte=date_time)
+    
     # related_post = Post.objects.filter(status=1,published_date__lte=date_time)
     post.counted_views += 1
     post.save()
+    context ={"post":post}
     return render(request, 'blog/blog_single.html', context)
 
 
@@ -33,3 +38,12 @@ def newsletter_view(request):
     else:
         form = NewsletterForm()
     return render(request, 'blog/newsletter.html', {'form': form})
+
+def blog_search(request):
+    posts = post_time(request)
+    if request.method =="GET":
+        if var :=request.GET.get("search"):
+            posts = posts.filter(content__contains=var)
+    context ={"posts":posts}  
+    return render (request,'blog/blog_home.html', context)      
+    
