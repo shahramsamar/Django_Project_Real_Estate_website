@@ -24,7 +24,9 @@ urlpatterns = [
     path('', blog_view, name='index'),
     path('post/<int:pid>',blog_single, name="single"),
     path('newsletter',newsletter_view, name='newsletter'),
-    path('search/', blog_search, name='search' )
+    path('search/', blog_search, name='search' ),
+    path('category/<str:cat_name>', blog_view, name="category"),
+
     
     
 ]

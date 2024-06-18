@@ -13,6 +13,10 @@ def post_time(request):
 
 def blog_view(request, **kwargs):
     posts = post_time(request)
+    
+    if kwargs.get('cat_name')!=None:
+        posts = posts.filter(category__name=kwargs['cat_name'])
+        
     context = {"posts":posts}
     return render(request,'blog/blog_home.html', context)
 
@@ -46,4 +50,11 @@ def blog_search(request):
             posts = posts.filter(content__contains=var)
     context ={"posts":posts}  
     return render (request,'blog/blog_home.html', context)      
+
+def blog_category(request, cat_name):
+    posts = Post.objects.filter(status=1)
+    posts = posts.filter(category__name=cat_name)
+    context = {'posts': posts}
+    return render(request, 'blog/blog-home.html', context)
+    
     
