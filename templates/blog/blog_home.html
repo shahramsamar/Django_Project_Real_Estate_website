@@ -41,9 +41,11 @@
                                     <p>{{post.content |safe}}</p>
                                     <ul class="blog-info-link">
                                         {% for cat in post.category.all %}
-                                        <li><a href="#"><i class="fa fa-user"></i>{{cat.name}}</a></li>
+                                        <li><a href="{% url "blog:category" cat_name=cat.name%}"><i class="fa fa-user"></i>{{cat.name}}</a></li>
                                         {% endfor%}
-                                        <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                        <li><a href="#"><i class="fa fa-comments"></i> {% counted_comments post.id %} Comments</a></li>
+                                        <li><a href="#"><i class="lnr lnr-eye"></i> {{post.counted_views}} views</a></li>
+                                        <li><a href="#" ><i class="lnr lnr-user"></i>{{post.author}}</a></li>
                                     </ul>
                                 </div>
                             </article>

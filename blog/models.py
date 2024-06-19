@@ -43,4 +43,28 @@ class Newsletter(models.Model):
     
         def __str__(self):
              return self.email
+         
+         
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='blog_image/',default='')
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    approved = models.BooleanField(default=False)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+    
+    
+    class Meta:
+        ordering = ['created_date']
+        
+    def __str__(self):
+         return self.name
+     
+    def get_absolute_url(self):
+       return reverse("blog:single", kwargs={"pk": self.pk})
+       
+     
     
