@@ -22,3 +22,17 @@ def function(pid):
     post = Post.objects.filter(pk=pid)
     return Comment.objects.filter(post=pid, approved=True).count()
 
+@register.simple_tag(name='totalposts')
+def function():
+    posts = Post.objects.filter(status=1)
+    return posts
+
+@register.simple_tag(name='posts')
+def function():
+    posts = Post.objects.filter(status=1)
+    return posts
+
+@register.inclusion_tag('blog/blog_popular_post_widget.html')
+def popular_post_widget():
+    posts = Post.objects.filter(status=1).order_by("published_date")[:3]
+    return {"posts":posts}

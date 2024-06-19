@@ -13,7 +13,7 @@ class Category(models.Model):
         return self.name 
     
 class Post(models.Model):
-    image = models.ImageField(upload_to='blog_image/',default='')
+    image = models.ImageField(upload_to='blog_image/',default='post_image/post.jpeg')
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=255)
     content = HTMLField()       
@@ -47,7 +47,7 @@ class Newsletter(models.Model):
          
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='blog_image/',default='')
+    image = models.ImageField(upload_to='blog_image/',default='post_image/post_icon.jpg')
     name = models.CharField(max_length=255)
     email = models.EmailField()
     subject = models.CharField(max_length=255)

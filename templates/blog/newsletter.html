@@ -4,7 +4,6 @@
     <form target="_blank" action="{% url "blog:newsletter" %}" method="post">
       <div class="form-group">
         {% csrf_token %}
-
         <input  name='email' type="name" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" placeholder="Enter email" required />
       </div>
       <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Subscribe</button>
