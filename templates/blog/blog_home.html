@@ -31,6 +31,7 @@
                                     <a href="#" class="blog_item_date">
                                         <h3>{{post.published_date |date:"d"}}</h3>
                                         <p>{{post.published_date |date:"M"}}</p>
+                                        <p>{{post.published_date |date:"Y"}}</p>
                                     </a>
                                 </div>
                                 <br>
@@ -38,14 +39,16 @@
                                     <a  class="d-inline-block" href="{% url "blog:single" pid=post.id %}">
                                         <h2  class="blog-head" style="color: #2d2d2d;">{{post.title}}</h2>
                                     </a>
-                                    <p>{{post.content |safe}}</p>
+                                    <a href="{% url "blog:single" pid=post.id %}">
+                                    <p>{{post.content|truncatewords:30 |safe}}</p>
+                                    </a>
                                     <ul class="blog-info-link">
                                         {% for cat in post.category.all %}
-                                        <li><a href="{% url "blog:category" cat_name=cat.name%}"><i class="fa fa-user"></i>{{cat.name}}</a></li>
+                                        <li><a href="{% url "blog:category" cat_name=cat.name%}"><i class="fas">&#xf02c;</i>{{cat.name}}</a></li>
                                         {% endfor%}
                                         <li><a href="#"><i class="fa fa-comments"></i> {% counted_comments post.id %} Comments</a></li>
-                                        <li><a href="#"><i class="lnr lnr-eye"></i> {{post.counted_views}} views</a></li>
-                                        <li><a href="#" ><i class="lnr lnr-user"></i>{{post.author}}</a></li>
+                                        <li><a href="#"><i class="fa">&#xf06e;</i>{{post.counted_views}} views</a></li>
+                                        <li><a href="#" ><i class="fa fa-user"></i>{{post.author}}</a></li>
                                     </ul>
                                 </div>
                             </article>
@@ -75,113 +78,11 @@
                     <div class="col-lg-4">
                         <div class="blog_right_sidebar">
                             {% include "blog/blog_search.html" %}
-
                             {% include "blog/blog_post_category.html" %} 
                             {% comment %} {% post_category %}  {% endcomment %}
-
-                            <aside class="single_sidebar_widget popular_post_widget">
-                                <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
-                                <div class="media post_item">
-                                    <img src="{% static "img/post/post_1.jpg"%}" alt="post">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h3 style="color: #2d2d2d;">From life was you fish...</h3>
-                                        </a>
-                                        <p>January 12, 2019</p>
-                                    </div>
-                                </div>
-                                <div class="media post_item">
-                                    <img src="{% static "img/post/post_2.jpg" %}" alt="post">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h3 style="color: #2d2d2d;">The Amazing Hubble</h3>
-                                        </a>
-                                        <p>02 Hours ago</p>
-                                    </div>
-                                </div>
-                                <div class="media post_item">
-                                    <img src="{% static "img/post/post_3.jpg" %}" alt="post">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h3 style="color: #2d2d2d;">Astronomy Or Astrology</h3>
-                                        </a>
-                                        <p>03 Hours ago</p>
-                                    </div>
-                                </div>
-                                <div class="media post_item">
-                                    <img src="{% static "img/post/post_4.jpg" %}" alt="post">
-                                    <div class="media-body">
-                                        <a href="">
-                                            <h3 style="color: #2d2d2d;">Asteroids telescope</h3>
-                                        </a>
-                                        <p>01 Hours ago</p>
-                                    </div>
-                                </div>
-                            </aside>
-                            <aside class="single_sidebar_widget tag_cloud_widget">
-                                <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
-                                <ul class="list">
-                                    <li>
-                                        <a href="#">project</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">love</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">technology</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">travel</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">restaurant</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">life style</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">design</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">illustration</a>
-                                    </li>
-                                </ul>
-                            </aside>
-                            <aside class="single_sidebar_widget instagram_feeds">
-                                <h4 class="widget_title" style="color: #2d2d2d;">Instagram Feeds</h4>
-                                <ul class="instagram_row flex-wrap">
-                                    <li>
-                                        <a href="#">
-                                            <img class="img-fluid" src="{% static "img/post/post_5.jpg" %}" alt>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img class="img-fluid" src="{% static "img/post/post_6.jpg" %}" alt>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img class="img-fluid" src="{% static "img/post/post_7.jpg" %}" alt>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img class="img-fluid" src="{% static "img/post/post_8.jpg" %}" alt>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img class="img-fluid" src="{% static "img/post/post_9.jpg" %}" alt>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img class="img-fluid" src="{% static "img/post/post_10.jpg" %}" alt>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </aside>
+                            {% include "blog/blog_popular_post_widget.html" %}
+                            {% include "blog/blog_tag_cloud_widget.html" %}
+                            {% include "blog/blog_instagram_feeds.html" %}
                             {% include "blog/newsletter.html" %}
                         </div>
                     </div>
