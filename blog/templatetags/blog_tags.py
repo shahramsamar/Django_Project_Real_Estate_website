@@ -9,10 +9,7 @@ register = template.Library()
 
 
 
-@register.simple_tag(name='counted_comments')
-def function(pid):
-    post = Post.objects.filter(pk=pid)
-    return Comment.objects.filter(post=pid, approved=True).count()
+
 
 @register.simple_tag(name='totalposts')
 def function():
@@ -26,6 +23,11 @@ def function():
 
 
 
+
+@register.simple_tag(name='counted_comments')
+def function(pid):
+    post = Post.objects.filter(pk=pid)
+    return Comment.objects.filter(post=pid, approved=True).count()
 
 
 @register.inclusion_tag('blog/blog_popular_post_widget.html')
