@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     # added module
     'multi_captcha_admin',
-    
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'website',
     'accounts',
     'blog',
-    
+
     # added module
     'compressor',
     'captcha',
@@ -207,3 +207,15 @@ COMPRESS_CACHE_BACKEND = 'default'
 
 # sitemap framework
 SITE_ID = 1
+
+
+# Configure message tags to match Toastr types
+# from django.contrib.messages import constants as messages
+
+# MESSAGE_TAGS = {
+#     messages.DEBUG: 'debug',
+#     messages.INFO: 'info',
+#     messages.SUCCESS: 'success',
+#     messages.WARNING: 'warning',
+#     messages.ERROR: 'error',
+# }

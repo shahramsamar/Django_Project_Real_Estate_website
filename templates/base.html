@@ -23,7 +23,10 @@
     <link rel="stylesheet" href="{% static "css/slick.css" %}">
     <link rel="stylesheet" href="{% static "css/nice-select.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+    <link rel="stylesheet" href="{% static "toastify/toastify.css" %}">
     {% endcompress %}
+
 
 </head>
 
@@ -77,6 +80,7 @@
                         </div>
                     </div>
                 </div>
+                {% include 'messages.html' %}
                 <div class="header-bottom">
                     <div class="container">
                         <div class="row justify-content-center">
@@ -284,7 +288,11 @@
     <script src="{% static "js/jquery.ajaxchimp.min.js" %}"></script>
     <script src="{% static "js/plugins.js" %}"></script>
     <script src="{% static "js/main.js" %}"></script>
+
+    <script src="{% static "toastify/toastify.js" %}"></script>
+
     {% endcompress %}
+
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>

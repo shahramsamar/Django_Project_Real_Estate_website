@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="path/to/toastify.css">
+</head>
+<body>
+  
+  {% if messages %}
+    {% for message in messages %}
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          Toastify({
+              text: `{{ message|safe }}`,
+              className: `{{ message.tags }}`,
+              style: {
+                background: "green",
+              }
+            }).showToast();
+        });
+      </script>
+    {% endfor %}
+  {% endif %}
+
+  {% if form.errors %}
+    <div class="alert alert-error">
+      <ul>
+        {% for field in form %}
+          {% if field.errors %}
+            {% for error in field.errors %}
+              <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                  Toastify({
+                      text: `{{ error|escape }}`,
+                      className: `error`,
+                      style: {
+                        background: "red",
+                      }
+                    }).showToast();
+                });
+              </script>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% if form.non_field_errors %}
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            Toastify({
+                text: `{{ form.non_field_errors.as_text }}`,
+                className: `error`,
+                style: {
+                  background: "red",
+                }
+              }).showToast();
+          });
+        </script>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <script src="path/to/toastify.js"></script>
+</body>
+</html>

@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from website.forms import NewsletterForm, ContactForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.http import JsonResponse
 
 
 def index_view(request):
@@ -18,12 +19,16 @@ def contact_view(request):
         request.POST['name'] = 'Anonymous'
         if form.is_valid():
             form.save()
-            messages.success(request,messages.SUCCESS,'your ticket Submited Successfully')
+            # Add a success message
+            messages.add_message(request,messages.SUCCESS,'your ticket Submited Successfully')
         else:
-            messages.error(request, messages.ERROR,'your ticket did not Submited Successfully' )
+            # Add an error message
+            messages.add_message(request, messages.ERROR,'your ticket did not Submited Successfully' )
     form = ContactForm()            
     context ={'form':form}   
     return render(request, 'website/contact.html',context)
+
+
 
 def property_view(request):
     return render(request, 'website/property.html')
