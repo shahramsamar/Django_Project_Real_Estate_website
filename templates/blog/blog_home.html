@@ -53,26 +53,41 @@
                                 </div>
                             </article>
                             {% endfor %}
+
+                           
                             <nav class="blog-pagination justify-content-center d-flex">
                                 <ul class="pagination">
+                                    {% if posts.has_previous %}
                                     <li class="page-item">
-                                        <a href="#" class="page-link" aria-label="Previous">
-                                            <i class="ti-angle-left"></i>
+                                        <a style="color: blue;" href="?page={{ posts.Previous_page_number }}" class="page-link" aria-label="Previous"> 
+                                            &laquo; first 
                                         </a>
                                     </li>
+                                    {% endif %}
+
+                                    {% for item in posts.paginator.page_range %}
+                                      {% if page.number == item %}
+                                        <li class="page-item active">
+                                            <a style="color: red; href="?page={{item}}" class="page-link">{{item}}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item ">
+                                            <a style="color: red;" href="?page={{item}}" class="page-link">{{item}}</a>
+                                        </li>
+                                      {% endif %}
+                                    {% endfor %}
+
+
+                                    {% if posts.has_next %}
                                     <li class="page-item">
-                                        <a href="#" class="page-link">1</a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a href="#" class="page-link">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a href="#" class="page-link" aria-label="Next">
-                                            <i class="ti-angle-right"></i>
+                                        <a style="color: blue;" href="?page={{posts.paginator.num_pages}}" class="page-link" aria-label="Next">
+                                            last &raquo; 
                                         </a>
                                     </li>
+                                    {% endif %}
                                 </ul>
                             </nav>
+
                         </div>
                     </div>
                     <div class="col-lg-4">

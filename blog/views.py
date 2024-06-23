@@ -4,6 +4,7 @@ from blog.models import Post
 from django.http import HttpResponseRedirect
 from blog.forms import NewsletterForm, CommentForm
 from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -20,6 +21,22 @@ def blog_view(request, **kwargs):
         
     if kwargs.get('author_username') != None:
         posts = posts.filter(author__username=kwargs['author_username'])   
+    
+    posts = Paginator(posts, 2)
+    try:
+        page_number = request.GET.get("page") 
+        posts = posts.page(page_number)
+        
+    except PageNotAnInteger:   
+         posts = posts.get_page(1)
+    
+    except EmptyPage:
+         posts = posts.get_page(1)
+
+        
+    
+    
+    
         
     context = {"posts":posts}
     return render(request,'blog/blog_home.html', context)
@@ -42,7 +59,10 @@ def blog_single(request, pid):
     
              
     # related_post = Post.objects.filter(status=1,published_date__lte=date_time)
+    
     # form = CommentForm()
+    
+    
     context ={"post":post}
     return render(request, 'blog/blog_single.html', context)
 
@@ -60,10 +80,11 @@ def newsletter_view(request):
 def blog_search(request):
     posts = post_time(request)
     if request.method =="GET":
-        if var :=request.GET.get("search"):
-            posts = posts.filter(content__contains=var)
+        if search :=request.GET.get("search"):
+            posts = posts.filter(content__contains=search)
     context ={"posts":posts}  
     return render (request,'blog/blog_home.html', context)      
+
 
 def blog_category(request, cat_name):
     posts = Post.objects.filter(status=1)
