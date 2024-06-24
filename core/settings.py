@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'tinymce',
     'django.contrib.humanize',
     'django.contrib.sites',# needed site framework
-    #'robots',# needed site framework
+     'robots',# needed site framework
     
     # added module for dev 
     'django_extensions',
@@ -210,8 +210,11 @@ COMPRESS_JS_FILTERS = [
 # Cache settings for compressor
 COMPRESS_CACHE_BACKEND = 'default'
 
-# sitemap framework
-SITE_ID = 2
+# sitemap framework # this is needed active site framework
+
+# robots # this is needed active site framework
+ROBOTS_USE_HOST = False
+ROBOTS_USE_SITEMAP = True # false -> how to show sitemap
 
 
 # Configure message tags to match Toastr types
