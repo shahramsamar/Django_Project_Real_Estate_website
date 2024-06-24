@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'taggit',
     'tinymce',
-    
+    'django.contrib.humanize',
 
     
 ]

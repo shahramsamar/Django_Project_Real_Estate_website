@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %}{% load humanize %} 
 <aside class="single_sidebar_widget popular_post_widget">
     <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
     {% for post in posts %}
@@ -10,7 +10,7 @@
                 <a href="{% url "blog:single" pid=post.id %}">
                     <h3 style="color: #2d2d2d;">{{post.title}}</h3>
                 </a>
-                <p>{{post.published_date |date:"Y M d"}}</p>
+                <p>{{post.published_date |naturaltime}}</p>
             </div>
         </div>
     {% endfor %}    
