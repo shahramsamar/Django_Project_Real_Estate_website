@@ -54,6 +54,11 @@ INSTALLED_APPS = [
     'taggit',
     'tinymce',
     'django.contrib.humanize',
+    'django.contrib.sites',# needed site framework
+    #'robots',# needed site framework
+    
+    # added module for dev 
+    'django_extensions',
 
     
 ]
@@ -206,7 +211,7 @@ COMPRESS_JS_FILTERS = [
 COMPRESS_CACHE_BACKEND = 'default'
 
 # sitemap framework
-SITE_ID = 1
+SITE_ID = 2
 
 
 # Configure message tags to match Toastr types

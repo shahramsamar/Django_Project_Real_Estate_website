@@ -33,6 +33,7 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title}  - {self.id}"
     
+    # this is show post in site and need site map
     def get_absolute_url(self):
         return reverse("blog:single", kwargs={"pid": self.id})
     
