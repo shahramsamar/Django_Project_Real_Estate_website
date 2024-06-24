@@ -59,7 +59,8 @@ INSTALLED_APPS = [
     
     # added module for dev 
     'django_extensions',
-
+    # location after staticfiles
+    'debug_toolbar',
     
 ]
 
@@ -71,6 +72,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # this is for dev  and setting debug
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -215,6 +219,15 @@ COMPRESS_CACHE_BACKEND = 'default'
 # robots # this is needed active site framework
 ROBOTS_USE_HOST = False
 ROBOTS_USE_SITEMAP = True # false -> how to show sitemap
+
+
+# debug_toolbar setting for dev when trun on it activate and trun off deactivate
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
+
 
 
 # Configure message tags to match Toastr types

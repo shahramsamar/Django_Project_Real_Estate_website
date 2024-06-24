@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from website.sitemaps import StaticViewSitemap
 from blog.sitemaps import BlogSitemap
-
+import debug_toolbar
 
 sitemaps={'static':StaticViewSitemap,'blog':BlogSitemap}
 
@@ -42,6 +42,8 @@ urlpatterns = [
     re_path(r'^robots\.txt', include('robots.urls')),
     
     path('tinymce/', include('tinymce.urls')),
+    # this setting for dev
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
 
 
