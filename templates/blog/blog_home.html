@@ -59,7 +59,7 @@
                                 <ul class="pagination">
                                     {% if posts.has_previous %}
                                     <li class="page-item">
-                                        <a style="color: blue;" href="?page={{ posts.Previous_page_number }}" class="page-link" aria-label="Previous"> 
+                                        <a style="color: black;" href="?page={{ posts.Previous_page_number }}" class="page-link" aria-label="Previous"> 
                                             &laquo; first 
                                         </a>
                                     </li>
@@ -68,11 +68,11 @@
                                     {% for item in posts.paginator.page_range %}
                                       {% if page.number == item %}
                                         <li class="page-item active">
-                                            <a style="color: red; href="?page={{item}}" class="page-link">{{item}}</a>
+                                            <a style="color: black; href="?page={{item}}" class="page-link">{{item}}</a>
                                         </li>
                                     {% else %}
                                         <li class="page-item ">
-                                            <a style="color: red;" href="?page={{item}}" class="page-link">{{item}}</a>
+                                            <a style="color: black;" href="?page={{item}}" class="page-link">{{item}}</a>
                                         </li>
                                       {% endif %}
                                     {% endfor %}
@@ -80,7 +80,7 @@
 
                                     {% if posts.has_next %}
                                     <li class="page-item">
-                                        <a style="color: blue;" href="?page={{posts.paginator.num_pages}}" class="page-link" aria-label="Next">
+                                        <a style="color: black;" href="?page={{posts.paginator.num_pages}}" class="page-link" aria-label="Next">
                                             last &raquo; 
                                         </a>
                                     </li>
@@ -94,12 +94,9 @@
                         <div class="blog_right_sidebar">
                             {% include "blog/blog_search.html" %}
                             {% popular_post_widget %}
-                            {% blog_post_category %} 
-                            
-                            {% include "blog/blog_tag_cloud_widget.html" %}
+                            {% blog_post_category  %} 
                             {% include "blog/blog_instagram_feeds.html" %}
                             {% include "blog/newsletter.html" %}
-        
                         </div>
                     </div>
                 </div>
