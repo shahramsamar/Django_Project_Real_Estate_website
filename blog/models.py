@@ -68,4 +68,3 @@ class Comment(models.Model):
        return reverse("blog:single", kwargs={"pk": self.pk})
        
      
-    

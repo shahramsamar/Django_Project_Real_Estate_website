@@ -57,10 +57,11 @@ def blog_single(request, pid):
     post.save()
     
              
-    # related_post = Post.objects.filter(status=1,published_date__lte=date_time)
+    related_post = Post.objects.filter(status=1,published_date__lte=date_time)
     comments = Comment.objects.filter(post=post.id, approved=True)
     form = CommentForm()
-    context ={"post":post,'comments': comments, 'form':form }
+    context ={"post":post,'comments': comments, 'form':form,'next': related_post.filter(id__gt=post.id).order_by('id').first(),
+                    'previous': related_post.filter(id__lt=post.id).order_by('-id').first()  }
     return render(request, 'blog/blog_single.html', context)
 
 

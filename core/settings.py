@@ -222,11 +222,11 @@ ROBOTS_USE_SITEMAP = True # false -> how to show sitemap
 
 
 # debug_toolbar setting for dev when trun on it activate and trun off deactivate
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    # ...
-]
+# INTERNAL_IPS = [
+#     # ...
+#     "127.0.0.1",
+#     # ...
+# ]
 
 
 
