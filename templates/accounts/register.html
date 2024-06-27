@@ -1,98 +1,40 @@
-{% load static %}
-{% load compress %}
-<!doctype html>
-<html class="no-js" lang="zxx">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Real Estate</title>
-<meta name="description" content>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/x-icon" href="{% static "img/icon/favicon.png"  %}">
-{% compress css %}
-<link rel="stylesheet" href="{% static "css/bootstrap.min.css"  %}">
-<link rel="stylesheet" href="{% static "css/owl.carousel.min.css"  %}">
-<link rel="stylesheet" href="{% static "css/slicknav.css"  %}">
-<link rel="stylesheet" href="{% static "css/animate.min.css"  %}">
-<link rel="stylesheet" href="{% static "css/magnific-popup.css"  %}">
-<link rel="stylesheet" href="{% static "css/fontawesome-all.min.css"  %}">
-<link rel="stylesheet" href="{% static "css/themify-icons.css"  %}">
-<link rel="stylesheet" href="{% static "css/slick.css"  %}">
-<link rel="stylesheet" href="{% static "css/nice-select.css"  %}">
-<link rel="stylesheet" href="{% static "css/style.css"  %}">
-{% endcompress %}
-</head>
-<body>
-<main class="login-bg">
+{% extends  "accounts/base_accounts.html" %}{% load static %}{% block content%}
 
-<div class="register-form-area">
-<div class="register-form text-center">
+  <body>
+    <main class="login-bg">
+      <div class="register-form-area">
+        <div class="register-form text-center">
+          <div class="register-heading">
+            <span>Sign Up</span>
+            <p>Create your account to get full access</p>
+          </div>
+          {% csrf_token %}
+          <div class="input-box">
+            <div class="single-input-fields">
+              <label>Full name</label>
+              <input type="text" placeholder="Enter full name" />
+            </div>
+            <div class="single-input-fields">
+              <label>Email Address</label>
+              <input type="email" placeholder="Enter email address" />
+            </div>
+            <div class="single-input-fields">
+              <label>Password</label>
+              <input type="password" placeholder="Enter Password" />
+            </div>
+            <div class="single-input-fields">
+              <label>Confirm Password</label>
+              <input type="password" placeholder="Confirm Password" />
+            </div>
+          </div>
 
-<div class="register-heading">
-<span>Sign Up</span>
-<p>Create your account to get full access</p>
-</div>
-
-<div class="input-box">
-<div class="single-input-fields">
-<label>Full name</label>
-<input type="text" placeholder="Enter full name">
-</div>
-<div class="single-input-fields">
-<label>Email Address</label>
-<input type="email" placeholder="Enter email address">
-</div>
-<div class="single-input-fields">
-<label>Password</label>
-<input type="password" placeholder="Enter Password">
-</div>
-<div class="single-input-fields">
-<label>Confirm Password</label>
-<input type="password" placeholder="Confirm Password">
-</div>
-</div>
-
-<div class="register-footer">
-<p> Already have an account? <a href="{% url 'login' %}"> Login</a> here</p>
-<button class="submit-btn3">Sign Up</button>
-</div>
-</div>
-</div>
-
-</main>
-
-{% compress js %}
-<script src="{% static "js/vendor/modernizr-3.5.0.min.js"  %}"></script>
-<script src="{% static "js/vendor/jquery-1.12.4.min.js"  %}"></script>
-<script src="{% static "js/popper.min.js"  %}"></script>
-<script src="{% static "js/bootstrap.min.js"  %}"></script>
-
-<script src="{% static "js/owl.carousel.min.js"  %}"></script>
-<script src="{% static "js/slick.min.js"  %}"></script>
-<script src="{% static "js/jquery.slicknav.min.js"  %}"></script>
-
-<script src="{% static "js/wow.min.js"  %}"></script>
-<script src="{% static "js/jquery.magnific-popup.js"  %}"></script>
-<script src="{% static "js/jquery.nice-select.min.js"  %}"></script>
-<script src="{% static "js/jquery.counterup.min.js"  %}"></script>
-<script src="{% static "js/waypoints.min.js"  %}"></script>
-
-<script src="{% static "js/contact.js"  %}"></script>
-<script src="{% static "js/jquery.form.js"  %}"></script>
-<script src="{% static "js/jquery.validate.min.js"  %}"></script>
-<script src="{% static "js/mail-script.js"  %}"></script>
-<script src="{% static "js/jquery.ajaxchimp.min.js"  %}"></script>
-
-<script src="{% static "js/plugins.js"  %}"></script>
-<script src="{% static "js/main.js"  %}"></script>
-{% endcompress %}
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-23581568-13');
-    </script>
-</body>
-</html>
+          <div class="register-footer">
+            <p>
+              Already have an account? <a href="{% url 'login' %}">Login</a> here
+            </p>
+            <button  type='submit'class="submit-btn3">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock%}

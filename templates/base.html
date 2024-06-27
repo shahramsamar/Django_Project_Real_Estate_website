@@ -52,7 +52,7 @@
 
                             <div class="left-side d-flex align-items-center">
                                 <div class="logo">
-                                    <a href="{% url 'website:index' %}"><img src="{% static "img/logo/logo.png" %}" alt></a>
+                                    <a href="#" class="header-btn2">Call Us: <span>+10 (78) 356 3276</span></a>  
                                 </div>
 
                                 <div class="main-menu d-none d-lg-block">
@@ -68,10 +68,12 @@
                                 </div>
                             </div>
                             <div class="header-right-btn f-right">
-                                <a href="#" class="header-btn2">Call Us: <span>+10 (78) 356 3276</span></a>
-                                <a href="{% url "login" %}" class="btn_1">Sign In</a>
-                                <a href="{% url "register" %}" class="btn_1">Sign up</a>
-
+                                {%  if request.user.is_authenticated %}
+                                {% comment %} <a> login user as {{ request.user.username }}</a> {% endcomment %}
+                                <a href="{% url "accounts:login" %}" class="btn_1">login {{ request.user.username }}</a>
+                                {% else %}
+                                <a href="{% url "accounts:register" %}" class="btn_1">Sign up</a>
+                                {% endif %}
                             </div>
 
                             <div class="col-12">
