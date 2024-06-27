@@ -33,7 +33,7 @@
                     {% for cat in post.category.all %}
                     <li><a href="{% url "blog:category" cat_name=cat.name%}"><i class="fas">&#xf02c;</i>{{cat.name}}</a></li>
                     {% endfor%}
-                    <li><a href="#"><i class="fa fa-comments"></i> {% counted_comments post.id %} Comments</a></li>
+                    <li><a href="#"><i class="fa fa-comments"></i> {{comments|length}} Comments</a></li>
                     <li><a href="#"><i class="fa">&#xf06e;</i>{{post.counted_views}} views</a></li>
                     <li><a href="#" ><i class="fa fa-user"></i>{{post.author}}</a></li>
                   </ul>
@@ -105,75 +105,35 @@
                 </div>
               </div>
               <div class="comments-area">
-                <h4>{% counted_comments post.id %} Comments</h4>
+                <h4>{{comments|length}} Comments</h4>
                 <div class="comment-list">
-                  <div class="single-comment justify-content-between d-flex">
-                    <div class="user justify-content-between d-flex">
-                      <div class="thumb">
-                        <img src="{% static "img/blog/comment_1.png" %}"alt />
-                      </div>
-                      <div class="desc">
-                        <p class="comment">Multiply sea night grass fourth day sea lesser rule open subdue female fill which them Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser</p>
-                        <div class="d-flex justify-content-between">
-                          <div class="d-flex align-items-center">
-                            <h5><a href="#">Emilly Blunt</a></h5>
-                            <p class="date">December 4, 2017 at 3:12 pm</p>
-                          </div>
-                          <div class="reply-btn">
-                            <a href="#" class="btn-reply text-uppercase">reply</a>
-                          </div>
+                  {% for comment in comments%}
+                    <div class="single-comment justify-content-between d-flex">
+                      <div class="user justify-content-between d-flex">
+                        <div class="thumb">
+                          <img src="{% static "img/blog/comment_1.png" %}"alt />
+                        </div>
+                        <div class="desc">
+                          <p class="comment">{{comment.message}}</p>
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex align-items-center">
+                              <h5><a href="#">{{comment.name}}</a></h5>
+                              <p class="date">{{comment.created_date}}</p>
+                            </div> 
+                          </div>   <br>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="comment-list">
-                  <div class="single-comment justify-content-between d-flex">
-                    <div class="user justify-content-between d-flex">
-                      <div class="thumb">
-                        <img src="{% static "img/blog/comment_2.png" %}" alt />
-                      </div>
-                      <div class="desc">
-                        <p class="comment">Multiply sea night grass fourth day sea lesser rule open subdue female fill which them Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser</p>
-                        <div class="d-flex justify-content-between">
-                          <div class="d-flex align-items-center">
-                            <h5><a href="#">Emilly Blunt</a></h5>
-                            <p class="date">December 4, 2017 at 3:12 pm</p>
-                          </div>
-                          <div class="reply-btn">
-                            <a href="#" class="btn-reply text-uppercase">reply</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="comment-list">
-                  <div class="single-comment justify-content-between d-flex">
-                    <div class="user justify-content-between d-flex">
-                      <div class="thumb">
-                        <img src="{% static "img//comment_3.png" %}" alt />
-                      </div>
-                      <div class="desc">
-                        <p class="comment">Multiply sea night grass fourth day sea lesser rule open subdue female fill which them Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser</p>
-                        <div class="d-flex justify-content-between">
-                          <div class="d-flex align-items-center">
-                            <h5><a href="#">Emilly Blunt</a></h5>
-                            <p class="date">December 4, 2017 at 3:12 pm</p>
-                          </div>
-                          <div class="reply-btn">
-                            <a href="#" class="btn-reply text-uppercase">reply</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    {% empty%}
+                    <p> no comments here be the first one to tell you thoughts</p>
+                    {% endfor %}
                 </div>
               </div>
               <div class="comment-form">
-                <h4>Leave a Reply</h4>
                 <form class="form-contact comment_form" method="post" action="{% url 'blog:single' pid=post.id %}" >
                   {% csrf_token %}
+                  <input type="hidden" name="post" value={{post.id}}>
+                  {% comment %} {{form.as_p}} {% endcomment %}
                   <div class="row">
                     <div class="col-12">
                       <div class="form-group">
@@ -195,14 +155,12 @@
                         <input class="form-control" name="subject"  type="text" placeholder="subject" />
                       </div>
                     </div>
-
-                  </div>
+                  </div> 
                   <div class="form-group">
                     <button type="submit" class="button button-contactForm btn_1 boxed-btn">Post Comment</button>
-                    
-
                   </div>
-                </form>
+                </form> 
+
               </div>
             </div>
 

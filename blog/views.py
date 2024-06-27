@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from blog.models import Post
+from blog.models import Post, Comment
 from django.http import HttpResponseRedirect
 from blog.forms import NewsletterForm, CommentForm
 from django.contrib import messages
@@ -37,10 +37,6 @@ def blog_view(request, **kwargs):
          posts = posts.get_page(1)
 
         
-    
-    
-    
-        
     context = {"posts":posts}
     return render(request,'blog/blog_home.html', context)
 
@@ -51,22 +47,20 @@ def blog_single(request, pid):
         form = CommentForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS,"YOUR COMMENT SUBMITED SUCCESSFULLY")
+            messages.add_message(request, messages.SUCCESS,"Your comment submited successfully")
         else:
-            messages.add_message(request,messages.ERROR,"YOUR COMMENT Failed SUCCESSFULLY") 
+            messages.add_message(request,messages.ERROR,"Your comment Failed successfully") 
              
     date_time = timezone.now()
-    post = get_object_or_404(Post,pk=pid,status=1,published_date__lte=date_time)
+    post = get_object_or_404(Post, pk=pid, status=1, published_date__lte=date_time)
     post.counted_views += 1
     post.save()
     
              
     # related_post = Post.objects.filter(status=1,published_date__lte=date_time)
-    
-    # form = CommentForm()
-    
-    
-    context ={"post":post}
+    comments = Comment.objects.filter(post=post.id, approved=True)
+    form = CommentForm()
+    context ={"post":post,'comments': comments, 'form':form }
     return render(request, 'blog/blog_single.html', context)
 
 

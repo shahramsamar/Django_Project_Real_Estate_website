@@ -9,9 +9,10 @@ class NewsletterForm(forms.ModelForm):
     class Meta:
         model = Newsletter
         fields = '__all__'
-        
+
 class CommentForm(forms.ModelForm):
-    model = Comment
-    fields = ['post','name','email','subject','message']        
-        
-        
+    class Meta:
+        model = Comment
+        fields = ['post','name','email','subject','message']        
+            
+            
