@@ -69,7 +69,7 @@
                             </div>
                             <div class="header-right-btn f-right">
                                 {%  if request.user.is_authenticated %}
-                                    <a href="#"class="btn_1">Login {{ request.user.username }}</a>
+                                    <a href="#" class="btn_1">Login {{ request.user.username }}</a>
                                     <a href="{% url "accounts:logout" %}" class="btn_1">logout </a>
                                 {% else %}
                                     <a href="{% url "accounts:login" %}" class="btn_1">login {{ request.user.username }}</a>
