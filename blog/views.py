@@ -5,7 +5,8 @@ from django.http import HttpResponseRedirect
 from blog.forms import NewsletterForm, CommentForm
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 # Create your views here.
 
 def post_time(request):
@@ -57,13 +58,18 @@ def blog_single(request, pid):
     post.save()
     
              
-    related_post = Post.objects.filter(status=1,published_date__lte=date_time)
-    comments = Comment.objects.filter(post=post.id, approved=True)
-    form = CommentForm()
-    context ={"post":post,'comments': comments, 'form':form,'next': related_post.filter(id__gt=post.id).order_by('id').first(),
-                    'previous': related_post.filter(id__lt=post.id).order_by('-id').first()  }
-    return render(request, 'blog/blog_single.html', context)
-
+    related_post = Post.objects.filter(status=1, published_date__lte=date_time)
+    
+    if not post.login_user_required:   
+        comments = Comment.objects.filter(post=post.id, approved=True)
+        form = CommentForm()
+        context ={"post":post,'comments': comments, 'form':form,'next': related_post.filter(id__gt=post.id).order_by('id').first(),
+                        'previous': related_post.filter(id__lt=post.id).order_by('-id').first()  }
+        return render(request, 'blog/blog_single.html', context)
+    else:      
+        return HttpResponseRedirect(reverse("accounts:login"))
+   
+   
 
 def newsletter_view(request):
     if request.method =="POST":

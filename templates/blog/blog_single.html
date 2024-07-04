@@ -7,7 +7,7 @@
               <div class="col-xxl-5 col-xl-6 col-lg-8 col-md-10">
 
                 <div class="hero-caption hero-caption2">
-                  <h1>Blog Details</h1>
+                  <h1>Blog Single</h1>
                   <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
                 </div>
               </div>
@@ -102,16 +102,21 @@
                         <textarea class="form-control w-100" name="message" type='text' cols="30" rows="9" placeholder="Write Comment"></textarea>
                       </div>
                     </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <input class="form-control" name="name"  type="text" placeholder="Name" />
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <input class="form-control" name="email"  type="email" placeholder="Email" />
-                      </div>
-                    </div>
+                      {% if request.user.is_authenticated %}
+                        <input class="form-control" name="name"  type="hidden" placeholder="Name" value="{{request.user.username}}" />
+                        <input class="form-control" name="email"  type="hidden" placeholder="Email" value="{{request.user.email}}"/>
+                      {% else %}
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <input class="form-control" name="name"  type="text" placeholder="Name" />
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <input class="form-control" name="email"  type="email" placeholder="Email" />
+                          </div>
+                        </div>
+                      {% endif %}  
                     <div class="col-12">
                       <div class="form-group">
                         <input class="form-control" name="subject"  type="text" placeholder="subject" />
