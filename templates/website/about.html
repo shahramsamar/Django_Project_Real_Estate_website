@@ -30,7 +30,7 @@
                   <p class="mb-20 mt-20">Rhoncus est pellen tesque elit ullam corper dignissim cras tincidunt lobortis feugiat. Et netus malesuada fames.</p>
                   <p class="mb-50">Rhoncus est pellen tesque elit ullam corper dignissim cras tincidunt lobortis feugiat. Et netus malesuada fames.</p>
                 </div>
-                <a href="#" class="btn">View All Property</a>
+                <a href="{% url 'website:property' %}" class="btn">View All Property</a>
               </div>
             </div>
             <div class="offset-xxl-1 col-xxl-5 col-xl-5 col-lg-6 col-md-8">
@@ -88,137 +88,7 @@
           </div>
         </div>
       </section>
-
-      <div class="team-area section-padding">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-xl-6 col-lg-8 col-md-10">
-              <div class="section-tittle text-center mb-40">
-                <h2>Our Agents</h2>
-                <p>Get started by choosing from one of our pre-built page templates to showcase your properties</p>
-              </div>
-            </div>
-          </div>
-          <div class="team-active">
-            <div class="single-team text-center">
-              <div class="team-img">
-                <img src="{% static "img/gallery/team1.jpg" %}" alt />
-
-                <div class="team-social">
-                  <ul>
-                    <li>
-                      <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fas fa-globe"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-caption">
-                <h3><a href="#">Buster Hyman</a></h3>
-                <p>Real Estate Agent</p>
-              </div>
-            </div>
-            <div class="single-team text-center">
-              <div class="team-img">
-                <img src="{% static "img/gallery/team2.jpg" %}" alt />
-
-                <div class="team-social">
-                  <ul>
-                    <li>
-                      <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fas fa-globe"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-caption">
-                <h3><a href="#">Holly Graham</a></h3>
-                <p>Real Estate Agent</p>
-              </div>
-            </div>
-            <div class="single-team text-center">
-              <div class="team-img">
-                <img src="{% static "img/gallery/team3.jpg" %}" alt />
-
-                <div class="team-social">
-                  <ul>
-                    <li>
-                      <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fas fa-globe"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-caption">
-                <h3><a href="#">Nick R. Bocker</a></h3>
-                <p>Real Estate Agent</p>
-              </div>
-            </div>
-            <div class="single-team text-center">
-              <div class="team-img">
-                <img src="{% static "img/gallery/team4.jpg" %}" alt />
-
-                <div class="team-social">
-                  <ul>
-                    <li>
-                      <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fas fa-globe"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-caption">
-                <h3><a href="#">Jimmy Changa</a></h3>
-                <p>Real Estate Agent</p>
-              </div>
-            </div>
-            <div class="single-team text-center">
-              <div class="team-img">
-                <img src="{% static "img/gallery/team2.jpg" %}" alt />
-
-                <div class="team-social">
-                  <ul>
-                    <li>
-                      <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fas fa-globe"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-caption">
-                <h3><a href="#">Buster Hyman</a></h3>
-                <p>Real Estate Agent</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      {% include "website/our_agent.html" %}
       {% include "website/newsletter.html" %}
     </main>
 {% endblock %}
