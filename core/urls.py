@@ -22,12 +22,15 @@ from django.contrib.sitemaps.views import sitemap
 from website.sitemaps import StaticViewSitemap
 from blog.sitemaps import BlogSitemap
 import debug_toolbar
+from core.veiws import coming_soon
 
 sitemaps={'static':StaticViewSitemap,'blog':BlogSitemap}
 
   
 
 urlpatterns = [
+    re_path(r'^.*$', coming_soon),
+
     path('admin/', admin.site.urls),
     path('', include('website.urls')),
     path('accounts/', include('accounts.urls')),
@@ -44,6 +47,7 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     # this setting for dev
     path("__debug__/", include("debug_toolbar.urls")),
+
 ]
 
 

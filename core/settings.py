@@ -69,11 +69,15 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    # this is for dev  and setting debug
+     'core.middleware.ComingSoonMiddleware',
+
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # this is for dev  and setting debug
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+
 
 ]
 
