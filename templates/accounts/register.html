@@ -10,7 +10,7 @@
           </div>
           
           <div class="input-box">
-            <form  method="post" action="{% url "accounts:register" %}">
+            <form  method="post" action="{% url "register" %}">
                   {% csrf_token %}
                 <div class="single-input-fields">
                   <label>Full name</label>
@@ -32,7 +32,7 @@
 
               <div class="register-footer">
                 <p>
-                  Already have an account? <a href="{% url 'accounts:login' %}">Login</a> here
+                  Already have an account? <a href="{% url 'login' %}">Login</a> here
                 </p>
                 <button  type='submit'class="submit-btn3">Sign Up</button>
               </div>

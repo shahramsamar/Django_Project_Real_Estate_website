@@ -29,7 +29,8 @@ sitemaps={'static':StaticViewSitemap,'blog':BlogSitemap}
   
 
 urlpatterns = [
-    re_path(r'^.*$', coming_soon),
+    # added path user
+    # re_path(r'^.*$', coming_soon),
 
     path('admin/', admin.site.urls),
     path('', include('website.urls')),

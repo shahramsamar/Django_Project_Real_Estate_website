@@ -239,3 +239,12 @@ ROBOTS_USE_SITEMAP = True # false -> how to show sitemap
 # AUTH_USER_MODEL = 'accounts.CustomUser'
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
                            'accounts.backends.EmailBackend']
+
+
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST="smtp.c1.liara.email"
+EMAIL_PORT=587
+EMAIL_HOST_USER="quirky_wright_baniik"
+EMAIL_HOST_PASSWORD="506b7906-05a9-4ea8-bbad-80839a5e3dbf"
+EMAIL_USE_TLS=True
+DEFAULT_FROM_EMAIL = 'info@shahramsamar.ir'
