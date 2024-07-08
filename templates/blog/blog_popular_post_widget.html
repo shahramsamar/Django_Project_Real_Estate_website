@@ -3,7 +3,7 @@
     <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
     {% for post in posts %}
         <div class="media post_item">
-            <img  style="width:auto;height:100px;" src="{{post.image.url}}" alt="post">
+            <img  style="width:auto;height:100px;" src="{{post.image.url}}" alt="post" loading="lazy">
            
             <div class="media-body">
                 <a href="{% url "blog:single" pid=post.id %}">

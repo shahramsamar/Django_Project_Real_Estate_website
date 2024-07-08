@@ -248,3 +248,7 @@ EMAIL_HOST_USER="quirky_wright_baniik"
 EMAIL_HOST_PASSWORD="506b7906-05a9-4ea8-bbad-80839a5e3dbf"
 EMAIL_USE_TLS=True
 DEFAULT_FROM_EMAIL = 'info@shahramsamar.ir'
+
+# config sitemap
+ROBOTS_USE_SITEMAP = True # False
+ROBOTS_USE_HOST = True # False

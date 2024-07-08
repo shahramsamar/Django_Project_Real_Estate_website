@@ -22,7 +22,7 @@
             <div class="col-lg-8 posts-list">
               <div class="single-post">
                 <div class="feature-img">
-                  <img class="img-fluid" src="{{post.image.url}}" alt />
+                  <img class="img-fluid" src="{{post.image.url}}" alt  loading="lazy"/>
                 </div>
 
                 <div class="blog_single">
@@ -73,7 +73,7 @@
                     <div class="single-comment justify-content-between d-flex">
                       <div class="user justify-content-between d-flex">
                         <div class="thumb">
-                          <img src="{% static "img/blog/comment_1.png" %}"alt />
+                          <img src="{% static "img/blog/comment_1.png" %}"alt  loading="lazy"/>
                         </div>
                         <div class="desc">
                           <p class="comment">{{comment.message}}</p>
