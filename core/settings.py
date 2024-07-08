@@ -11,23 +11,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bz07lkpxolqg(g+a05x)chk($v=#vmtm9y=n*cm4*q=a45pzez'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -102,56 +91,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# if DEBUG:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': config("DB_ENGINE",default='django.db.backends.postgresql'),
-#             'NAME': config("DB_NAME",default='postgres'),
-#             'USER': config("DB_USER",default='postgres'),
-#             'PASSWORD':config("DB_PASSWORD",default='0000'),
-#             'HOST': config("DB_HOST",default='127.0.0.1'),
-#             'PORT': config("DB_PORT",cast=int,default='5432'),
-#         }
-#     }
-
-
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-# DATABASES = {
-#         'default': {
-#             'ENGINE': config("DB_ENGINE",default='django.db.backends.postgresql'),
-#             'NAME': config("DB_NAME",default='postgres'),
-#             'USER': config("DB_USER",default='postgres'),
-#             'PASSWORD':config("DB_PASSWORD",default='0000'),
-#             'HOST': config("DB_HOST",default='127.0.0.1'),
-#             'PORT': config("DB_PORT",cast=int,default='5432'),
-#         }
-#     }
-
-# captcha admin setting
-MULTI_CAPTCHA_ADMIN = {
-    'engine': 'simple-captcha',
-}
-
-
-
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -183,16 +122,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-STATIC_ROOT = BASE_DIR / 'statics'
-MEDIA_ROOT = BASE_DIR / 'media'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -200,55 +130,3 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# compressor
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
-]
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
-# Set the backend to use for compression
-COMPRESS_CSS_FILTERS = [
-    'compressor.filters.css_default.CssAbsoluteFilter',
-    'compressor.filters.cssmin.CSSMinFilter',
-]
-COMPRESS_JS_FILTERS = [
-    'compressor.filters.jsmin.JSMinFilter',
-]
-# Cache settings for compressor
-COMPRESS_CACHE_BACKEND = 'default'
-
-# sitemap framework # this is needed active site framework
-
-# robots # this is needed active site framework
-ROBOTS_USE_HOST = False
-ROBOTS_USE_SITEMAP = True # false -> how to show sitemap
-
-
-# debug_toolbar setting for dev when trun on it activate and trun off deactivate
-# INTERNAL_IPS = [
-#     # ...
-#     "127.0.0.1",
-#     # ...
-# ]
-
-
-
-
-
-# AUTH_USER_MODEL = 'accounts.CustomUser'
-AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
-                           'accounts.backends.EmailBackend']
-
-
-EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST="smtp.c1.liara.email"
-EMAIL_PORT=587
-EMAIL_HOST_USER="quirky_wright_baniik"
-EMAIL_HOST_PASSWORD="506b7906-05a9-4ea8-bbad-80839a5e3dbf"
-EMAIL_USE_TLS=True
-DEFAULT_FROM_EMAIL = 'info@shahramsamar.ir'
-
-# config sitemap
-ROBOTS_USE_SITEMAP = True # False
-ROBOTS_USE_HOST = True # False

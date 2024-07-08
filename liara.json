@@ -1,0 +1,24 @@
+
+{
+    "platform": "django",
+    "django": {
+      "pythonVersion": "3.12",
+      "collectStatic": true,
+      "compileMessages": false,
+      "modifySettings": true,
+      "timezone": "Asia/Tehran"
+      
+    },
+    "app": "Real-Estate-Project",
+    "disks": [
+      {
+        "name": "static",
+        "mountTo": "staticfiles"
+      },
+      {
+        "name": "media",
+        "mountTo": "media"
+      }
+    ]
+  }
+  
