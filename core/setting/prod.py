@@ -13,18 +13,7 @@ DEBUG = config("DEBUG")
 ALLOWED_HOSTS = ['*']
 
 
-
-
-
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
+DATABASES = {
         'default': {
             'ENGINE': config("DB_ENGINE"),
             'NAME': config("DB_NAME"),
@@ -34,6 +23,26 @@ else:
             'PORT': config("DB_PORT", cast=int),
         }
     }
+
+
+# if DEBUG:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': config("DB_ENGINE"),
+#             'NAME': config("DB_NAME"),
+#             'USER': config("DB_USER"),
+#             'PASSWORD':config("DB_PASSWORD"),
+#             'HOST': config("DB_HOST"),
+#             'PORT': config("DB_PORT", cast=int),
+#         }
+#     }
 
 
 
@@ -54,7 +63,8 @@ MULTI_CAPTCHA_ADMIN = {
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = BASE_DIR / 'statics'
+
+STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_ROOT = BASE_DIR / 'media'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
@@ -105,6 +115,6 @@ DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
 
 
 # security deploy
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
