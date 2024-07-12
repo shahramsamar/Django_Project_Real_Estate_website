@@ -33,6 +33,7 @@ urlpatterns = [
     # re_path(r'^.*$', coming_soon),
 
     path('admin/', admin.site.urls),
+
     path('', include('website.urls')),
     path('accounts/', include('accounts.urls')),
     path('blog/', include('blog.urls')),

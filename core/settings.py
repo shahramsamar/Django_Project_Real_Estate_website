@@ -50,10 +50,21 @@ INSTALLED_APPS = [
     'django_extensions',
     # location after staticfiles
     'debug_toolbar',
+    # HTML compression and GZipMiddleware
+    'htmlmin',
+    # added  module for security 
+
     
 ]
 
+
+
 MIDDLEWARE = [
+     # HTML compression and GZipMiddleware
+    'django.middleware.gzip.GZipMiddleware',  # Add this before other middlewares
+    'htmlmin.middleware.HtmlMinifyMiddleware',
+    'htmlmin.middleware.MarkRequestMiddleware',
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,6 +77,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # this is for dev  and setting debug
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+   
+    
 
 
 ]
@@ -130,3 +143,8 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# Enable HTMLMIN
+HTML_MINIFY = True
+
+# Optional: add exceptions for HTML minification
+EXCLUDE_FROM_MINIFYING = ('/admin/',)  # Add any URL patterns you want to exclude from minification
