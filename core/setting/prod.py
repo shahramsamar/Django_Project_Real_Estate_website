@@ -13,16 +13,26 @@ DEBUG = config("DEBUG")
 ALLOWED_HOSTS = ['*']
 
 
+# DATABASES = {
+#         'default': {
+#             'ENGINE': config("DB_ENGINE"),
+#             'NAME': config("DB_NAME"),
+#             'USER': config("DB_USER"),
+#             'PASSWORD':config("DB_PASSWORD"),
+#             'HOST': config("DB_HOST"),
+#             'PORT': config("DB_PORT", cast=int),
+#         }
+#     }
 DATABASES = {
-        'default': {
-            'ENGINE': config("DB_ENGINE"),
-            'NAME': config("DB_NAME"),
-            'USER': config("DB_USER"),
-            'PASSWORD':config("DB_PASSWORD"),
-            'HOST': config("DB_HOST"),
-            'PORT': config("DB_PORT", cast=int),
-        }
+    'default': {
+        'ENGINE': config("DB_ENGINE",default='django.db.backends.postgresql'),
+        'NAME': config("DB_NAME",default='project'),
+        'USER': config("DB_USER",default='postgres'),
+        'PASSWORD':config("DB_PASSWORD",default='0000'),
+        'HOST': config("DB_HOST",default='127.0.0.1'),
+        'PORT': config("DB_PORT",cast=int,default='5432'),
     }
+}
 
 
 # if DEBUG:
@@ -116,5 +126,9 @@ DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
 
 # security deploy
 SECURE_SSL_REDIRECT = False
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True #to avoid transmitting the CSRF cookie over HTTP accidentally.
+SESSION_COOKIE_SECURE = True #to avoid transmitting the session cookie over HTTP accidentally.
+
+# Cross site scripting (XSS)
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True

@@ -22,7 +22,7 @@
             <div class="col-lg-8 posts-list">
               <div class="single-post">
                 <div class="feature-img">
-                  <img class="img-fluid" src="{{post.image.url}}" alt  loading="lazy"/>
+                  <img class="img-fluid" src="{{post.image.url}}" alt='post'  loading="lazy"/>
                 </div>
 
                 <div class="blog_single">
@@ -47,7 +47,7 @@
                     <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                       <div class="detials">
                         {% if previous.status == 1 %}
-                          <a href="#"><img class="img-fluid" style="width:80px;height:80px;"  src="{{previous.image.url}}" alt /></a>
+                          <a href="#"><img class="img-fluid" style="width:80px;height:80px;"  src="{{previous.image.url}}" alt='previous image' /></a>
                           <p>Prev Post</p>
                           <a href="{% url 'blog:single' pid=previous.id %}"><h4 style="color: #2d2d2d;">{{previous}}</h4></a>
                         {% endif %}
@@ -56,7 +56,7 @@
                     <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                       <div class="detials">
                         {% if next.status == 1 %}
-                        <a href="#"><img class="img-fluid" style="width:80px;height:80px;"  src="{{next.image.url}}" alt /></a>
+                        <a href="#"><img class="img-fluid" style="width:80px;height:80px;"  src="{{next.image.url}}" alt='nextimage' /></a>
                           <p>Next Post</p>
                           <a href="{% url 'blog:single' pid=next.id %}"><h4 style="color: #2d2d2d;">{{next}}</h4></a>
                         {% endif %}
@@ -73,7 +73,7 @@
                     <div class="single-comment justify-content-between d-flex">
                       <div class="user justify-content-between d-flex">
                         <div class="thumb">
-                          <img src="{% static "img/blog/comment_1.png" %}"alt  loading="lazy"/>
+                          <img src="{% static "img/blog/comment_1.png" %}"alt='comment_1'  loading="lazy"/>
                         </div>
                         <div class="desc">
                           <p class="comment">{{comment.message}}</p>
