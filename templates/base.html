@@ -6,9 +6,33 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Real Estate</title>
-    <meta name="description" content>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--dynamic meta description -->
+     <!-- Meta tags, title, CSS links -->
+     <title>{% block title %}Real Estate Company{% endblock %}</title>
+     <meta name="description" content="{% block meta_description %}Discover properties, buy, sell, or rent homes and offices with our real estate services.{% endblock %}">
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+     <!-- AddThis script -->
+     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=YOUR_ADDTHIS_PUBID"></script>
+    
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- Inline Critical CSS -->
+     <style>
+        /* Critical CSS goes here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Add more critical CSS */
+    </style>
+
+    <!-- Load Non-Critical CSS Asynchronously -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" media="print" onload="this.onload=null;this.removeAttribute('media');">
+    <noscript><link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"></noscript>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" media="print" onload="this.onload=null;this.removeAttribute('media');">
+    <noscript><link rel="stylesheet" href="{% static 'css/style.css' %}"></noscript>
+    <!-- Load Non-Critical CSS Asynchronously -->
+
+
     <link rel="shortcut icon" type="image/x-icon" href="{% static "img/icon/favicon.png" %}" loading="lazy">
     {% compress css %}
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
@@ -295,7 +319,11 @@
     <script src="{% static "toastify/toastify.js" %}"></script>
 
     {% endcompress %}
-
+     
+    <!-- Load Non-Essential JavaScript Deferred -->
+    <script defer src="{% static 'js/main.js' %}"></script>
+    <script defer src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <!-- Add more deferred scripts -->
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>

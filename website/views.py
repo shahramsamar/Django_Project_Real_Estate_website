@@ -6,10 +6,12 @@ from django.http import JsonResponse
 
 
 def index_view(request):
-    return render(request, 'website/index.html')
+    context = {'meta_description': 'A custom description for the home page.'}
+    return render(request, 'website/index.html', context)
 
 def about_view(request):
-    return render(request, 'website/about.html')
+    context ={'meta_description': 'Learn more about us and what we do.'}
+    return render(request, 'website/about.html', context)
 
 def contact_view(request):
     if request.method == 'POST':
@@ -25,7 +27,7 @@ def contact_view(request):
             # Add an error message
             messages.add_message(request, messages.ERROR,'your ticket did not Submited Successfully' )
     form = ContactForm()            
-    context ={'form':form}   
+    context ={'form':form, 'meta_description': 'Learn more contact us and what we do.'}   
     return render(request, 'website/contact.html',context)
 
 

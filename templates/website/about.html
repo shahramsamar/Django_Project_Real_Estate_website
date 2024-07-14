@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %} 
+
+# dynamic meta description
+{% block title %}About Us - Real Estate Company | Property Management{% endblock %}
+{% block meta_description %}Learn more about our real estate company, our property management services, and how we help people buy, sell, and rent homes and offices. Discover our mission, vision, and the team behind our success at Real Estate.{% endblock %}
+
 {% block content %}
     <main>
       <div class="slider-area">
@@ -90,5 +95,48 @@
       </section>
       {% include "website/our_agent.html" %}
       {% include "website/newsletter.html" %}
+
+      <!-- Your content here -->
+    
+    <!-- Social Media Sharing Buttons -->
+    <div class="social-share-buttons">
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+          <img src="{% static 'img/facebook.png' %}" alt="Share on Facebook">
+      </a>
+      <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text=Check%20this%20out!" target="_blank">
+          <img src="{% static 'img/twitter.png' %}" alt="Tweet">
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title=About%20Us" target="_blank">
+          <img src="{% static 'img/linkedin.png' %}" alt="Share on LinkedIn">
+      </a>
+   </div>
+
+
+
+
     </main>
+
+    <!-- Structured Data -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "About Us - Real Estate Company | Property Management",
+      "description": "Learn more about our real estate company, our property management services, and how we help people buy, sell, and rent homes and offices. Discover our mission, vision, and the team behind our success at Real Estate.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Real Estate Company",
+        "url": "https://www.yourwebsite.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.yourwebsite.com/static/img/logo.png"
+        },
+        "sameAs": [
+          "https://www.facebook.com/yourrealestatecompany",
+          "https://twitter.com/yourrealestatecompany",
+          "https://www.linkedin.com/company/yourrealestatecompany"
+        ]
+      }
+    }
+  </script>
 {% endblock %}
