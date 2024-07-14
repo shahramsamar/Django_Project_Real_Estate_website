@@ -15,7 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from website.views import index_view, about_view, contact_view, newsletter_view, property_view
+from website.views import *
+from django.conf.urls import handler400, handler403, handler404, handler500
 
 app_name = 'website'
 
@@ -29,3 +30,10 @@ urlpatterns = [
     path('newsletter',newsletter_view, name='newsletter'),
 
 ]
+
+
+# Custom error handler
+handler400 = 'website.views.custom_400'
+handler403 = 'website.views.custom_403'
+handler404 = 'website.views.custom_404'
+handler500 = 'website.views.custom_500'
