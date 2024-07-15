@@ -19,19 +19,19 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
-from website.sitemaps import StaticViewSitemap
+from website.sitemaps import StaticViewSitemap, PropertySitemap
 from blog.sitemaps import BlogSitemap
+
 import debug_toolbar
 from core.veiws import coming_soon
 
-sitemaps={'static':StaticViewSitemap,'blog':BlogSitemap}
+sitemaps={'static':StaticViewSitemap,'blog':BlogSitemap, 'properties': PropertySitemap}
 
   
 
 urlpatterns = [
     # added path user
     # re_path(r'^.*$', coming_soon),
-
     path('admin/', admin.site.urls),
 
     path('', include('website.urls')),

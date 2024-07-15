@@ -132,3 +132,6 @@ SESSION_COOKIE_SECURE = True #to avoid transmitting the session cookie over HTTP
 # Cross site scripting (XSS)
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# sitemap and robots
+SITE_ID = 2  # or whatever the ID of your Site object is
