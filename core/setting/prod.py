@@ -100,12 +100,12 @@ COMPRESS_JS_FILTERS = [
 # Cache settings for compressor
 COMPRESS_CACHE_BACKEND = 'default'
 
-# sitemap framework # this is needed active site framework
-# robots # this is needed active site framework
-ROBOTS_USE_HOST = False
+# sitemap framework  and robots # this is needed active site framework
+ROBOTS_USE_HOST = False # false -> how to show
 ROBOTS_USE_SITEMAP = True # false -> how to show sitemap
+SITE_ID = 2  # or whatever the ID of your Site object is
 
-
+ 
 
 
 
@@ -133,5 +133,4 @@ SESSION_COOKIE_SECURE = True #to avoid transmitting the session cookie over HTTP
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
-# sitemap and robots
-SITE_ID = 2  # or whatever the ID of your Site object is
+
