@@ -9,7 +9,7 @@ RewriteRule ^(.*)$ http://www.example.com/$1 [L,R=301]
 
 
 # disable directory browsing
-   <!-- Options –Indexes -->
+   Options –Indexes 
 
 # Enables browser caching
 

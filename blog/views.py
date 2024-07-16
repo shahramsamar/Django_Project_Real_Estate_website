@@ -76,9 +76,12 @@ def newsletter_view(request):
         form = NewsletterForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.add_message(request,messages.SUCCESS,'subscribe Successfully')
+
             return redirect('blog:index')
     else:
         form = NewsletterForm()
+        messages.add_message(request, messages.ERROR,'subscribe UnSuccessfully' )
     return render(request, 'blog/newsletter.html', {'form': form})
 
 def blog_search(request):

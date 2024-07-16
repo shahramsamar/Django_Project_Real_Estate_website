@@ -13,28 +13,6 @@ DEBUG = config("DEBUG")
 ALLOWED_HOSTS = ['*']
 
 
-# DATABASES = {
-#         'default': {
-#             'ENGINE': config("DB_ENGINE"),
-#             'NAME': config("DB_NAME"),
-#             'USER': config("DB_USER"),
-#             'PASSWORD':config("DB_PASSWORD"),
-#             'HOST': config("DB_HOST"),
-#             'PORT': config("DB_PORT", cast=int),
-#         }
-#     }
-DATABASES = {
-    'default': {
-        'ENGINE': config("DB_ENGINE",default='django.db.backends.postgresql'),
-        'NAME': config("DB_NAME",default='project'),
-        'USER': config("DB_USER",default='postgres'),
-        'PASSWORD':config("DB_PASSWORD",default='0000'),
-        'HOST': config("DB_HOST",default='127.0.0.1'),
-        'PORT': config("DB_PORT",cast=int,default='5432'),
-    }
-}
-
-
 # if DEBUG:
 #     DATABASES = {
 #         'default': {
@@ -45,16 +23,26 @@ DATABASES = {
 # else:
 #     DATABASES = {
 #         'default': {
-#             'ENGINE': config("DB_ENGINE"),
-#             'NAME': config("DB_NAME"),
-#             'USER': config("DB_USER"),
-#             'PASSWORD':config("DB_PASSWORD"),
-#             'HOST': config("DB_HOST"),
-#             'PORT': config("DB_PORT", cast=int),
+#             'ENGINE': config("DB_ENGINE",default='django.db.backends.postgresql'),
+#             'NAME': config("DB_NAME",default='project'),
+#             'USER': config("DB_USER",default='postgres'),
+#             'PASSWORD':config("DB_PASSWORD",default='0000'),
+#             'HOST': config("DB_HOST",default='127.0.0.1'),
+#             'PORT': config("DB_PORT",cast=int,default='5432'),
 #         }
 #     }
 
 
+DATABASES = {
+        'default': {
+            'ENGINE': config("DB_ENGINE",default='django.db.backends.postgresql'),
+            'NAME': config("DB_NAME",default='project'),
+            'USER': config("DB_USER",default='postgres'),
+            'PASSWORD':config("DB_PASSWORD",default='0000'),
+            'HOST': config("DB_HOST",default='127.0.0.1'),
+            'PORT': config("DB_PORT",cast=int,default='5432'),
+        }
+    }
 
 
 
