@@ -148,7 +148,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Enable HTMLMIN
-HTML_MINIFY = True
+# HTML_MINIFY = True
 
 # Optional: add exceptions for HTML minification
 EXCLUDE_FROM_MINIFYING = ('/admin/',)  # Add any URL patterns you want to exclude from minification
