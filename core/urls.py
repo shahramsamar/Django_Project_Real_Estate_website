@@ -44,7 +44,7 @@ urlpatterns = [
     path('sitemap.xml', sitemap, 
          {'sitemaps':sitemaps},name='django.contrib.sitemaps.views.sitemap'),
     
-    re_path(r'^robots\.txt', include('robots.urls')),
+    path('robots.txt', include('robots.urls')),
     
     path('tinymce/', include('tinymce.urls')),
     # this setting for dev
