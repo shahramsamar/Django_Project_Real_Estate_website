@@ -56,3 +56,11 @@ urlpatterns = [
 # static
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+# Custom error handler
+handler400 = 'website.views.custom_400'
+handler403 = 'website.views.custom_403'
+handler404 = 'website.views.custom_404'
+handler500 = 'website.views.custom_500'

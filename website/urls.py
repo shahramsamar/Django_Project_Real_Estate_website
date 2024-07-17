@@ -15,25 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from website.views import *
-from django.conf.urls import handler400, handler403, handler404, handler500
+from website import views
 
 app_name = 'website'
 
 
 
 urlpatterns = [
-    path('', index_view, name='index'),
-    path('about', about_view, name='about'),
-    path('contact', contact_view, name='contact'),
-    path('property', property_view, name='property'),
-    path('newsletter',newsletter_view, name='newsletter'),
+    path('', views.index_view, name='index'),
+    path('about', views.about_view, name='about'),
+    path('contact', views.contact_view, name='contact'),
+    path('property', views.property_view, name='property'),
+    path('newsletter',views.newsletter_view, name='newsletter'),
 
 ]
 
 
-# Custom error handler
-handler400 = 'website.views.custom_400'
-handler403 = 'website.views.custom_403'
-handler404 = 'website.views.custom_404'
-handler500 = 'website.views.custom_500'

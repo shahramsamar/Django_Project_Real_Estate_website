@@ -15,20 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from blog.views import blog_view, blog_single, newsletter_view, blog_search
+from blog import views 
 from blog.feeds import LatestEntriesFeed
 
 
 app_name ="blog"
 
 urlpatterns = [
-    path('', blog_view, name='index'),
-    path('post/<int:pid>',blog_single, name="single"),
-    path('newsletter',newsletter_view, name='newsletter'),
-    path('search/', blog_search, name='search' ),
-    path('category/<str:cat_name>', blog_view, name="category"),
-    path('author/<str:author_username>', blog_view, name='author'),
-    path('tag/<str:tag_name>', blog_view, name="tag"),
+    path('', views.blog_view, name='index'),
+    path('post/<int:pid>',views.blog_single, name="single"),
+    path('newsletter',views.newsletter_view, name='newsletter'),
+    path('search/',views.blog_search, name='search' ),
+    path('category/<str:cat_name>', views.blog_view, name="category"),
+    path('author/<str:author_username>', views.blog_view, name='author'),
+    path('tag/<str:tag_name>',views.blog_view, name="tag"),
     path("rss/feed/", LatestEntriesFeed()),
 
 

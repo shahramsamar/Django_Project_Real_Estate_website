@@ -1,9 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bad Request - 400</title>
+    <title>Forbidden - 403</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
         body {
@@ -37,16 +39,18 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="error-title">400 - Bad Request</div>
-        <div class="error-message">Sorry, there was a bad request.</div>
-        <div class="links">
-            <a href="{% url 'website:index' %}">Home</a>
-            <a href="{% url 'website:about' %}">About Us</a>
-            <a href="{% url 'website:contact' %}">Contact Us</a>
-            <a href="{% url 'website:property' %}">View Properties</a>
-            <a href="{% url 'blog:index' %}">Blog</a>
+    {% block content %}
+        <div class="container">
+            <div class="error-title">403 - Forbidden</div>
+            <div class="error-message">Sorry, you are not authorized to access this page.</div>
+            <div class="links">
+                <a href="{% url 'website:index' %}">Home</a>
+                <a href="{% url 'website:about' %}">About Us</a>
+                <a href="{% url 'website:contact' %}">Contact Us</a>
+                <a href="{% url 'website:property' %}">View Properties</a>
+                <a href="{% url 'blog:index' %}">Blog</a>
+            </div>
         </div>
-    </div>
+    {% endblock %}
 </body>
 </html>
