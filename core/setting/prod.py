@@ -89,9 +89,9 @@ COMPRESS_JS_FILTERS = [
 COMPRESS_CACHE_BACKEND = 'default'
 
 # sitemap framework  and robots # this is needed active site framework
-ROBOTS_USE_HOST = config("True") # false -> how to show
-ROBOTS_USE_SITEMAP = config("True") # false -> how to show sitemap
-SITE_ID = config(2)   # or whatever the ID of your Site object is
+ROBOTS_USE_HOST = True # false -> how to show
+ROBOTS_USE_SITEMAP = True # false -> how to show sitemap
+SITE_ID = 7 # or whatever the ID of your Site object is
 
  
 
