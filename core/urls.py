@@ -60,7 +60,8 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 # Custom error handler
-handler400 = 'website.views.custom_400'
-handler403 = 'website.views.custom_403'
-handler404 = 'website.views.custom_404'
-handler500 = 'website.views.custom_500'
+handler400 = 'website.views.custom_400'# bad_request
+handler403 = 'website.views.custom_403'# permission_denied
+handler404 = 'website.views.custom_404'# page_not_found
+handler500 = 'website.views.custom_500' # server_error
+
