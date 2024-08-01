@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # HTML compression and GZipMiddleware
     'htmlmin',
     # added  module for security 
+    'honeypot',
 
     
 ]
@@ -152,3 +153,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Optional: add exceptions for HTML minification
 EXCLUDE_FROM_MINIFYING = ('/admin/',)  # Add any URL patterns you want to exclude from minification
+
+
+# honeypot configs
+HONEY_LOGIN_TRYOUT = 3
