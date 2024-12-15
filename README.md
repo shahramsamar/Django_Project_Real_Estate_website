@@ -145,3 +145,4 @@ For example, you can set up these API endpoints:
 
 This `README.md` provides detailed installation, usage, and project structure instructions for the Real Estate website built with Django. It highlights the main features such as property listings, user authentication, and the admin panel while explaining how to set up the project, database, and server.
 
+![Alt](https://repobeats.axiom.co/api/embed/eabe6508a91fa38b4ace0060919094363916f544.svg "Repobeats analytics image")
