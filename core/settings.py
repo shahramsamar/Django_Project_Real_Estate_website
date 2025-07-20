@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'tinymce',
     'django.contrib.humanize',
     'django.contrib.sites',# needed site framework
-     'robots',# needed site framework
+    'robots',# needed site framework
     
     # added module for dev 
     'django_extensions',
