@@ -8,7 +8,7 @@ from decouple import config
 SECRET_KEY = 'django-insecure-bz07lkpxolqg(g+a05x)chk($v=#vmtm9y=n*cm4*q=a45pzez'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -17,13 +17,16 @@ ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
+    'django.contrib.contenttypes',  # Must be present
+    'django.contrib.auth',          # Should come before contenttypes
+    # ... other apps ...
+    'taggit',                      # Required for taggit
+    'website',     
     # added module for dev 
     'django_extensions',
     # location after staticfiles
-    'debug_toolbar',
+    'debug_toolbar',# Your app
 ]
-
-
 
 
 
@@ -31,14 +34,14 @@ INSTALLED_APPS = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_ROOT = BASE_DIR / 'static'
-MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-
-
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
 
 
 
@@ -69,3 +72,9 @@ COMPRESS_CACHE_BACKEND = 'default'
 #     # ...
 # ]
 
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
